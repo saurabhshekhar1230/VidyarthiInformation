@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vidyarthi Studio - Strong Concepts. Confident Students.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #2563eb;
+            --secondary-blue: #1e40af;
+            --accent-yellow: #fbbf24;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --white: #ffffff;
+            --light-bg: #f9fafb;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: var(--white);
+            padding: 80px 20px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0V40C200,80,400,20,600,40C800,60,1000,80,1200,40V0Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .hero .tagline {
+            font-size: 1.2rem;
+            background: var(--accent-yellow);
+            color: var(--text-dark);
+            padding: 15px 25px;
+            border-radius: 10px;
+            display: inline-block;
+            margin: 20px 0;
+            font-weight: 600;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .btn {
+            padding: 16px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-yellow), #f59e0b);
+            color: var(--text-dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.5);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.5);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--light-bg);
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .founder-info {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-top: 30px;
+        }
+
+        .founder-info h3 {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .founder-info p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        /* Features Grid */
+        .features {
+            background: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--light-bg);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-blue);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            color: var(--primary-blue);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-card ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .feature-card li {
+            padding: 8px 0;
+            color: var(--text-dark);
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .feature-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        /* Programs Section */
+        .programs {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: var(--white);
+        }
+
+        .programs .section-title {
+            color: var(--white);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .program-card {
+            background: var(--white);
+            color: var(--text-dark);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .program-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .program-card h3 {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .program-card .highlight {
+            background: var(--accent-yellow);
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            background: var(--light-bg);
+        }
+
+        .benefits-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .benefit-item {
+            background: var(--white);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-content h4 {
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .benefit-content p {
+            color: var(--text-light);
+        }
+
+        /* Important Info */
+        .important-info {
+            background: #fef3c7;
+            border-left: 5px solid var(--accent-yellow);
+        }
+
+        .info-box {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .info-box h3 {
+            color: var(--primary-blue);
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+        .info-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-box li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            color: var(--text-dark);
+            font-size: 1.05rem;
+        }
+
+        .info-box li::before {
+            content: '📌';
+            position: absolute;
+            left: 0;
+        }
+
+        .note {
+            background: var(--accent-yellow);
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* Special Offer */
+        .special-offer {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .special-offer .section-title {
+            color: var(--text-dark);
+        }
+
+        .offer-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .offer-badge {
+            background: #ef4444;
+            color: var(--white);
+            padding: 10px 25px;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        .offer-box h3 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .offer-box p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            background: var(--light-bg);
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .contact .section-title {
+            color: var(--white);
+        }
+
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-info p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .whatsapp-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--accent-yellow);
+            color: var(--text-dark);
+            padding: 15px 30px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: var(--white);
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            text-decoration: none;
+            animation: whatsapp-pulse 2s infinite;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.15) rotate(10deg);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.7);
+        }
+
+        @keyframes whatsapp-pulse {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+            }
+            50% {
+                box-shadow: 0 4px 30px rgba(37, 211, 102, 0.8);
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero .tagline {
+                font-size: 1rem;
+                padding: 12px 18px;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .btn {
+                padding: 12px 24px;
+                font-size: 0.95rem;
+            }
+
+            .features-grid,
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefit-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .floating-whatsapp {
+                width: 50px;
+                height: 50px;
+                font-size: 1.6rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Banner -->
+    <div style="background: linear-gradient(135deg, #fbbf24, #f59e0b); padding: 20px 15px; text-align: center;">
+        <div class="container">
+            <h3 style="color: #1f2937; font-size: 1.3rem; margin-bottom: 10px;">📢 All India Parents ke liye Special Announcement</h3>
+            <p style="color: #1f2937; font-size: 1.1rem; font-weight: 600;">
+                "कमजोर बच्चे नहीं, कमजोर concepts होते हैं।"<br>
+                Inhi concepts ko strong karne ke liye Vidyarthi Studio lekar aaya hai ek trusted academic platform
+            </p>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <div style="font-size: 4rem; margin-bottom: 15px; animation: fadeInDown 1s ease-out;">🎓</div>
+            <h1>Strong Concepts. Confident Students.</h1>
+            <p>Welcome to Vidyarthi Studio - Where Your Child's Academic Journey Begins!</p>
+            <p style="margin-top: 15px; font-size: 1.05rem;">One to One & Small Batch Online Classes (Max 7 Students) for Grade 5–12 Students</p>
+            <div class="cta-buttons">
+                <a href="https://forms.gle/jwYoCquuCfmkVj2V7" target="_blank" class="btn btn-primary">📝 Fill Registration Form</a>
+                <a href="https://vidyarthistudio.netlify.app/" target="_blank" class="btn btn-secondary">🌐 Visit Our Website</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <h2 class="section-title">About Vidyarthi Studio</h2>
+            <div class="about-content">
+                <div style="text-align: center; margin-bottom: 25px;">
+                    <img src="student-study.jpg.png" alt="Student studying online with Vidyarthi Studio" style="max-width: 100%; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.1);" class="fade-in">
+                </div>
+                <p>
+                    Vidyarthi Studio is an online learning platform focused on concept clarity, 
+                    personal attention, and real academic improvement. We believe that every child 
+                    has the potential to excel – they just need the right guidance and support.
+                </p>
+                <div class="founder-info fade-in">
+                    <h3>👨‍🏫 Founded by Saurabh Shekhar</h3>
+                    <p>11+ Years Experienced Mathematics Faculty & Vedic Maths Trainer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Faculty Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Our Faculty</h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Experienced Educators</h3>
+                    <ul>
+                        <li>Teachers from reputed institutes like Aakash, Allen, BYJU'S, Unacademy</li>
+                        <li>Faculty from top schools across India</li>
+                        <li>All teachers have 5+ years of experience</li>
+                    </ul>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Global Expertise</h3>
+                    <ul>
+                        <li>International teaching experience faculties available</li>
+                        <li>Subject-wise expert teachers</li>
+                        <li>Trained in modern pedagogical methods</li>
+                    </ul>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">⭐</div>
+                    <h3>Quality Assurance</h3>
+                    <ul>
+                        <li>Rigorous selection process</li>
+                        <li>Regular training and development</li>
+                        <li>Student-centric teaching approach</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs">
+        <div class="container">
+            <h2 class="section-title">Our Programs</h2>
+            <div class="programs-grid">
+                <div class="program-card fade-in">
+                    <div style="font-size: 3.5rem; margin-bottom: 10px;">👤</div>
+                    <h3>One to One Classes</h3>
+                    <p>Personal Mentorship</p>
+                    <div class="highlight">Individual Attention</div>
+                </div>
+                <div class="program-card fade-in">
+                    <div style="font-size: 3.5rem; margin-bottom: 10px;">👥</div>
+                    <h3>Small Batch Classes</h3>
+                    <p>Interactive Learning</p>
+                    <div class="highlight">Max 7 Students</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose">
+        <div class="container">
+            <h2 class="section-title">Why Choose Vidyarthi Studio?</h2>
+            <div style="text-align: center; margin-bottom: 40px;">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop" alt="Students Studying Together" style="max-width: 100%; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.1);" class="fade-in">
+            </div>
+            <div class="benefits-list">
+                <div class="benefit-item fade-in">
+                    <div class="benefit-icon">💡</div>
+                    <div class="benefit-content">
+                        <h4>Live Interactive Classes</h4>
+                        <p>Two-way communication for better engagement and understanding</p>
+                    </div>
+                </div>
+                <div class="benefit-item fade-in">
+                    <div class="benefit-icon">🎯</div>
+                    <div class="benefit-content">
+                        <h4>Personal Attention</h4>
+                        <p>Every student gets individual focus and doubt resolution</p>
+                    </div>
+                </div>
+                <div class="benefit-item fade-in">
+                    <div class="benefit-icon">📚</div>
+                    <div class="benefit-content">
+                        <h4>Backlog Coverage Support</h4>
+                        <p>Extra help for students who need to catch up</p>
+                    </div>
+                </div>
+                <div class="benefit-item fade-in">
+                    <div class="benefit-icon">🏠</div>
+                    <div class="benefit-content">
+                        <h4>Online Classes with Offline Vibes</h4>
+                        <p>Students can learn from home without missing studies during travel or vacations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Important Information -->
+    <section class="important-info">
+        <div class="container">
+            <div class="info-box fade-in">
+                <h3 style="text-align: center; margin-bottom: 25px;">📋 Important Information for Parents</h3>
+                
+                <div style="background: #dbeafe; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid var(--primary-blue);">
+                    <p style="font-size: 1.1rem; font-weight: 600; color: var(--primary-blue); margin-bottom: 10px;">
+                        📅 Classes will commence from 15 April 2026
+                    </p>
+                    <p style="color: var(--text-dark);">
+                        🌐 Visit our Official Website for complete details & updates
+                    </p>
+                </div>
+
+                <div style="margin-bottom: 25px;">
+                    <h4 style="color: var(--primary-blue); font-size: 1.3rem; margin-bottom: 15px;">📚 Courses Available:</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 10px 0; padding-left: 30px; position: relative; font-size: 1.05rem; color: var(--text-dark);">✅ Vedic Mathematics Course</li>
+                        <li style="padding: 10px 0; padding-left: 30px; position: relative; font-size: 1.05rem; color: var(--text-dark);">✅ Zero to Hero Maths Course (Grade 5–8)</li>
+                        <li style="padding: 10px 0; padding-left: 30px; position: relative; font-size: 1.05rem; color: var(--text-dark);">✅ Maths Accelerator Program</li>
+                        <li style="padding: 10px 0; padding-left: 30px; position: relative; font-size: 1.05rem; color: var(--text-dark);">✅ Regular Online Classes (Grade 5–12 | Maths & Science)</li>
+                    </ul>
+                    <p style="margin-top: 15px; padding: 12px; background: #fef3c7; border-radius: 8px; font-size: 0.95rem; color: var(--text-dark);">
+                        📌 Other subjects (English, SST, Hindi, Sanskrit) available on request
+                    </p>
+                </div>
+
+                <div style="margin-bottom: 25px;">
+                    <h4 style="color: var(--primary-blue); font-size: 1.3rem; margin-bottom: 15px;">💳 Flexible Payment Options:</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                        <div style="background: linear-gradient(135deg, #dcfce7, #bbf7d0); padding: 15px; border-radius: 10px; text-align: center;">
+                            <p style="font-weight: 600; color: #166534; margin-bottom: 5px;">📅 Monthly Payment</p>
+                        </div>
+                        <div style="background: linear-gradient(135deg, #fef3c7, #fde68a); padding: 15px; border-radius: 10px; text-align: center;">
+                            <p style="font-weight: 600; color: #92400e; margin-bottom: 5px;">💰 Course-wise Payment</p>
+                            <p style="font-size: 0.85rem; color: #78350f;">One-time / Installments</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #e0e7ff, #c7d2fe); padding: 25px; border-radius: 15px; margin-bottom: 25px; border-left: 5px solid var(--secondary-blue);">
+                    <h4 style="color: var(--secondary-blue); font-size: 1.3rem; margin-bottom: 15px; text-align: center;">🚀 Next Steps (Very Important)</h4>
+                    <p style="text-align: center; color: var(--text-dark); margin-bottom: 20px; font-size: 1.05rem;">All actions can be completed by visiting our Official Website:</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+                        <a href="https://vidyarthistudio.netlify.app/" target="_blank" style="background: var(--primary-blue); color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(37,99,235,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">🌐 Visit Our Website First</a>
+                    </div>
+                    <div style="margin-top: 20px; padding: 15px; background: #fef3c7; border-radius: 10px;">
+                        <p style="color: var(--text-dark); font-weight: 600; margin-bottom: 10px; text-align: center;">Once on the website, you can:</p>
+                        <ul style="list-style: none; padding: 0; text-align: center; color: var(--text-dark);">
+                            <li style="padding: 8px 0;">👉 Fill Registration Form</li>
+                            <li style="padding: 8px 0;">👉 Join Official WhatsApp Group</li>
+                            <li style="padding: 8px 0;">👉 Attend Demo Class</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #fce7f3, #fbcfe8); padding: 25px; border-radius: 15px; margin-bottom: 25px; border-left: 5px solid #ec4899;">
+                    <h4 style="color: #ec4899; font-size: 1.3rem; margin-bottom: 15px; text-align: center;">🙏 Kind Request to Parents</h4>
+                    <p style="color: var(--text-dark); line-height: 1.8; text-align: center; margin-bottom: 15px;">
+                        Please stay connected in the WhatsApp group for all updates.<br>
+                        Our team ensures timely communication & personal attention for every student ❤️
+                    </p>
+                    <p style="color: var(--text-dark); line-height: 1.8; text-align: center; font-weight: 600;">
+                        📢 We also request parents to share this information with other parents/groups so that more students can benefit from quality education.
+                    </p>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #f3f4f6, #e5e7eb); padding: 25px; border-radius: 15px; border-left: 5px solid #6b7280;">
+                    <h4 style="color: var(--text-dark); font-size: 1.3rem; margin-bottom: 15px; text-align: center;">👨🏫 Teaching Vacancy / Hiring Information</h4>
+                    <p style="color: var(--text-dark); text-align: center; margin-bottom: 15px; font-size: 1.05rem;">
+                        Interested candidates can:
+                    </p>
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <p style="color: var(--text-dark); margin-bottom: 15px;">📩 Send their resume to our official email id<br>📲 Or directly WhatsApp on 7693806696</p>
+                        <a href="https://vidyarthistudio.netlify.app/" target="_blank" style="background: var(--primary-blue); color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(37,99,235,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">🌐 Visit Website for Email ID</a>
+                    </div>
+                    <div style="background: #fef3c7; padding: 15px; border-radius: 10px; border-left: 4px solid #f59e0b;">
+                        <p style="color: var(--text-dark); font-weight: 600; margin-bottom: 10px;">⏳ Note:</p>
+                        <p style="color: var(--text-dark); line-height: 1.7;">
+                            If there is a vacancy, our team will contact you within 7 days.<br>
+                            If you do not receive a response, it means the position is currently filled.<br>
+                            <strong>We will surely reach out in future opportunities.</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offer -->
+    <section class="special-offer">
+        <div class="container">
+            <div class="offer-box fade-in">
+                <div class="offer-badge">🎁 LIMITED OFFER</div>
+                <h3>Free Registration for First 500 Parents!</h3>
+                <p>Fill the Google Form now and get added to the Official Parent Group within 24 hours</p>
+                <a href="#registration" class="btn btn-secondary">👉 Fill Google Form Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="registration">
+        <div class="container">
+            <div style="background: linear-gradient(135deg, #fef3c7, #fde68a); padding: 50px 30px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);" class="fade-in">
+                <div style="font-size: 3rem; margin-bottom: 15px;">🎯</div>
+                <h2 style="color: var(--primary-blue); margin-bottom: 30px;">Give Your Child the Right Academic Support Today</h2>
+                <div class="cta-buttons">
+                    <a href="https://forms.gle/jwYoCquuCfmkVj2V7" target="_blank" class="btn btn-primary">
+                        📝 Fill Google Form Now
+                    </a>
+                    <a href="https://vidyarthistudio.netlify.app/" target="_blank" class="btn btn-secondary">
+                        🌐 Visit Official Website
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-info fade-in">
+                <p>For any queries, reach us on WhatsApp only:</p>
+                <a href="https://wa.me/917693806696" target="_blank" style="text-decoration: none;">
+                    <div class="whatsapp-number">
+                        📞 7693806696
+                    </div>
+                </a>
+                <div style="margin-top: 30px;">
+                    <a href="https://vidyarthistudio.netlify.app/" target="_blank" class="btn btn-secondary" style="margin-top: 15px;">
+                        🌐 Visit Official Website
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Vidyarthi Studio. All Rights Reserved.</p>
+            <p style="margin-top: 10px; opacity: 0.8; font-size: 0.9rem;">
+                Empowering Students Through Concept Clarity
+            </p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/917693806696" class="floating-whatsapp" target="_blank" title="Chat on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    </a>
+
+    <script>
+        // Smooth scroll animations on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
